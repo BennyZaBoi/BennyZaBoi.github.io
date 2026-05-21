@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>About - Minh (Ben) Pham</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=JetBrains+Mono:wght@400;700&family=Hanken+Grotesk:wght@400;600;700&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "secondary-fixed-dim": "#acd1a1",
+          "on-secondary-fixed": "#032103",
+          "surface-container-lowest": "#0d0f0d",
+          "on-tertiary-fixed-variant": "#584324",
+          "inverse-on-surface": "#2f312e",
+          "outline": "#8c9387",
+          "surface-tint": "#a1d494",
+          "secondary-container": "#31512c",
+          "on-primary": "#0a3909",
+          "primary-fixed": "#bcf0ae",
+          "surface": "#121412",
+          "on-background": "#e2e3df",
+          "surface-container-highest": "#333533",
+          "on-tertiary-container": "#dcbd95",
+          "surface-container": "#1e201e",
+          "error-container": "#93000a",
+          "surface-container-low": "#1a1c1a",
+          "on-surface": "#e2e3df",
+          "secondary-fixed": "#c7edbb",
+          "primary-fixed-dim": "#a1d494",
+          "surface-bright": "#383a37",
+          "on-error": "#690005",
+          "on-surface-variant": "#c2c9bb",
+          "secondary": "#acd1a1",
+          "primary": "#a1d494",
+          "inverse-surface": "#e2e3df",
+          "on-error-container": "#ffdad6",
+          "on-secondary-container": "#9ec294",
+          "on-primary-fixed": "#002201",
+          "inverse-primary": "#3b6934",
+          "primary-container": "#2d5a27",
+          "outline-variant": "#42493e",
+          "tertiary": "#e1c299",
+          "on-secondary": "#193715",
+          "error": "#ffb4ab",
+          "tertiary-fixed": "#feddb3",
+          "tertiary-container": "#624c2c",
+          "on-primary-fixed-variant": "#23501e",
+          "on-secondary-fixed-variant": "#2f4e2a",
+          "tertiary-fixed-dim": "#e1c299",
+          "on-primary-container": "#9dd090",
+          "surface-dim": "#121412",
+          "surface-variant": "#333533",
+          "background": "#121412",
+          "on-tertiary-fixed": "#281801",
+          "on-tertiary": "#402d10",
+          "surface-container-high": "#292a28"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "container-max": "1200px",
+          "base": "8px",
+          "margin": "32px",
+          "gutter": "24px"
+        },
+        "fontFamily": {
+          "headline-lg-mobile": ["Space Mono", "monospace"],
+          "label-caps": ["Space Mono", "monospace"],
+          "headline-lg": ["Space Mono", "monospace"],
+          "code-sm": ["JetBrains Mono", "monospace"],
+          "headline-xl": ["Space Mono", "monospace"],
+          "body-md": ["Hanken Grotesk", "sans-serif"]
+        },
+        "fontSize": {
+          "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "700"}],
+          "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}],
+          "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+          "code-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+          "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+          "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+        }
+      }
+    }
+  }
+</script>
+<link rel="stylesheet" href="../css/styles.css"/>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col md:flex-row">
+
+<canvas id="pixel-overlay" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:9999;pointer-events:none;display:block;"></canvas>
+
+<!-- SideNavBar — matches home page style -->
+<nav class="hidden lg:flex flex-col h-full py-margin bg-surface-container w-64 fixed left-0 top-0 border-r-2 border-outline-variant z-50">
+  <div class="px-4 mb-8">
+    <div class="flex items-center gap-4 mb-4">
+      <div class="w-12 h-12 bg-primary-container pixel-border flex items-center justify-center">
+        <img alt="Ben Pham" class="w-full h-full object-cover" src="../image/professionalben.jpg"/>
+      </div>
+      <div>
+        <h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary tracking-tighter">Ben Pham</h1>
+        <p class="font-code-sm text-code-sm text-secondary uppercase">Data Enthusiast</p>
+      </div>
+    </div>
+    <button class="w-full py-2 bg-surface text-primary pixel-border pixel-shadow hover:bg-surface-container-high transition-colors font-label-caps text-label-caps pixel-shadow-active">
+      INITIATE_CONTACT
+    </button>
+  </div>
+  <ul class="flex flex-col gap-2 px-2">
+    <li>
+      <a data-nav href="index.html" class="flex items-center gap-3 text-on-surface-variant px-4 py-2 hover:bg-surface-container-high font-code-sm text-code-sm uppercase tracking-widest hover:bg-surface-container-highest transition-all active:scale-95 duration-100">
+        <span class="material-symbols-outlined">terminal</span>
+        Home
+      </a>
+    </li>
+    <li>
+      <a data-nav href="project.html" class="flex items-center gap-3 text-on-surface-variant px-4 py-2 hover:bg-surface-container-high font-code-sm text-code-sm uppercase tracking-widest hover:bg-surface-container-highest transition-all active:scale-95 duration-100">
+        <span class="material-symbols-outlined">forest</span>
+        Projects
+      </a>
+    </li>
+    <li>
+      <a data-nav href="about.html" class="flex items-center gap-3 bg-secondary-container text-on-secondary-container border-l-4 border-secondary px-4 py-2 font-code-sm text-code-sm uppercase tracking-widest active:scale-95 duration-100">
+        <span class="material-symbols-outlined">query_stats</span>
+        About
+      </a>
+    </li>
+    <li>
+      <a data-nav href="contact.html" class="flex items-center gap-3 text-on-surface-variant px-4 py-2 hover:bg-surface-container-high font-code-sm text-code-sm uppercase tracking-widest hover:bg-surface-container-highest transition-all active:scale-95 duration-100">
+        <span class="material-symbols-outlined">person</span>
+        Contact
+      </a>
+    </li>
+  </ul>
+  <div class="px-4 mt-auto">
+    <button onclick="window.open('../misc/Ben_Pham_Resume%20(23).pdf', '_blank')" class="w-full py-2 bg-surface text-secondary pixel-border-secondary pixel-shadow hover:bg-surface-container-high transition-colors font-label-caps text-label-caps pixel-shadow-active">
+        DOWNLOAD_CV
+    </button>
+  </div>
+</nav>
+
+<!-- Main Content -->
+<main class="flex-grow lg:ml-64 flex flex-col p-4 md:p-8 lg:p-margin gap-8 max-w-container-max mx-auto w-full animate-pixel-fade">
+
+  <!-- Page Header -->
+  <div class="mb-8 border-b-2 border-primary-container pb-4">
+    <h1 class="font-headline-xl text-headline-xl text-primary mb-2">&gt; CHARACTER_STATS</h1>
+    <p class="font-code-sm text-code-sm text-on-surface-variant flex items-center gap-2">
+      <span class="w-2 h-4 bg-primary inline-block animate-pulse"></span> SYSTEM.READ_PROFILE()
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 xl:grid-cols-12 gap-gutter">
+
+    <!-- Portrait & Vitals Column -->
+    <div class="xl:col-span-4 space-y-gutter">
+      <!-- Avatar Card -->
+      <div class="bg-surface-container p-4 pixel-border relative">
+        <div class="card-label">ENTITY.IMG</div>
+        <div class="w-full aspect-square bg-surface-variant mb-4 overflow-hidden border-2 border-primary-container">
+          <img alt="pfp" class="w-full h-full object-cover" src="../image/portfolio_picture.jpg"/>
+        </div>
+        <div class="space-y-2 font-code-sm text-code-sm">
+          <div class="flex justify-between border-b border-surface-container-highest pb-1">
+            <span class="text-on-surface-variant">CLASS</span>
+            <span class="text-secondary">DATA_SCIENTIST</span>
+          </div>
+          <div class="flex justify-between border-b border-surface-container-highest pb-1">
+            <span class="text-on-surface-variant">LEVEL</span>
+            <span class="text-primary">42</span>
+          </div>
+          <div class="flex justify-between border-b border-surface-container-highest pb-1">
+            <span class="text-on-surface-variant">ALIGNMENT</span>
+            <span class="text-tertiary">NEUTRAL_GOOD</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content Column -->
+    <div class="xl:col-span-8 space-y-gutter">
+
+      <!-- Bio -->
+      <div class="bg-surface-container p-6 pixel-border relative">
+        <div class="card-label">BACKGROUND_LORE</div>
+        <p class="font-body-md text-body-md text-on-surface leading-relaxed">
+          &gt; Loading historical archives... <br/><br/>
+          Hello my name is Ben Pham. I am a passionate Data Scientist and Data Analyst with a love for uncovering insights from complex datasets. With a background in Computer Science, I have honed my skills in Python, SQL, and data visualization tools like Tableau. I thrive on solving challenging problems and am always eager to learn new techniques in the ever-evolving field of data science. When I'm not analyzing data, you can find me collecting watches and cologne, listening to music, or reading books.
+        </p>
+      </div>
+
+      <!-- Skills -->
+      <div class="bg-surface-container p-6 pixel-border relative">
+        <div class="card-label">INVENTORY.SKILLS</div>
+        <div class="flex flex-wrap gap-4 mt-4 font-code-sm text-code-sm">
+          <span class="text-secondary flex items-center gap-2 bg-surface-container-highest px-3 py-1 rounded-sm">
+            <span class="material-symbols-outlined text-sm">terminal</span> PYTHON
+          </span>
+          <span class="text-secondary flex items-center gap-2 bg-surface-container-highest px-3 py-1 rounded-sm">
+            <span class="material-symbols-outlined text-sm">terminal</span> C++
+          </span>
+          <span class="text-secondary flex items-center gap-2 bg-surface-container-highest px-3 py-1 rounded-sm">
+            <span class="material-symbols-outlined text-sm">terminal</span> R
+          </span>
+           <span class="text-secondary flex items-center gap-2 bg-surface-container-highest px-3 py-1 rounded-sm">
+            <span class="material-symbols-outlined text-sm">terminal</span> JavaScript
+          </span>
+          <span class="text-tertiary flex items-center gap-2 bg-surface-container-highest px-3 py-1 rounded-sm">
+            <span class="material-symbols-outlined text-sm">database</span> SQL
+          </span>
+          <span class="text-secondary-fixed-dim flex items-center gap-2 bg-surface-container-highest px-3 py-1 rounded-sm">
+            <span class="material-symbols-outlined text-sm">map</span> TABLEAU
+          </span>
+          <span class="text-primary flex items-center gap-2 bg-surface-container-highest px-3 py-1 rounded-sm">
+            <span class="material-symbols-outlined text-sm">memory</span> SCIKIT-LEARN
+          </span>
+          <span class="text-primary flex items-center gap-2 bg-surface-container-highest px-3 py-1 rounded-sm">
+            <span class="material-symbols-outlined text-sm">memory</span> XGBOOST
+          </span>
+          <span class="text-primary flex items-center gap-2 bg-surface-container-highest px-3 py-1 rounded-sm">
+            <span class="material-symbols-outlined text-sm">memory</span> SHAP
+          </span>
+          <span class="text-primary flex items-center gap-2 bg-surface-container-highest px-3 py-1 rounded-sm">
+            <span class="material-symbols-outlined text-sm">memory</span> SMOTE
+          </span>
+        </div>
+      </div>
+
+      <!-- Side Quests -->
+      <div class="bg-surface-container p-6 pixel-border relative">
+        <div class="card-label">SIDE_QUESTS</div>
+        <ul class="space-y-3 mt-4">
+          <li class="flex items-center gap-2 text-on-surface-variant font-code-sm text-code-sm">
+            <span class="material-symbols-outlined text-sm text-tertiary">watch</span> Collecting Watches and Cologne
+          </li>
+          <li class="flex items-center gap-2 text-on-surface-variant font-code-sm text-code-sm">
+            <span class="material-symbols-outlined text-sm text-secondary-fixed">headphones</span> Listening to Music
+          </li>
+          <li class="flex items-center gap-2 text-on-surface-variant font-code-sm text-code-sm">
+            <span class="material-symbols-outlined text-sm text-primary">menu_book</span> Reading Books
+          </li>
+        </ul>
+      </div>
+
+      <!-- Quest Log -->
+      <div class="bg-surface-container p-6 pixel-border relative">
+        <div class="card-label">QUEST_LOG</div>
+        <div class="space-y-4 mt-4">
+          <div class="border-l-2 border-primary pl-4 py-2 hover:bg-surface-container-highest transition-colors">
+            <div class="flex items-center gap-2 mb-1">
+              <span class="text-secondary font-code-sm text-code-sm">[IN_PROGRESS]</span>
+              <h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">BS in Computer Science</h3>
+            </div>
+            <p class="font-body-md text-body-md text-on-surface-variant">UC Riverside | Exp. June 2026</p>
+          </div>
+          <div class="border-l-2 border-outline-variant pl-4 py-2 hover:bg-surface-container-highest transition-colors">
+            <div class="flex items-center gap-2 mb-1">
+              <span class="text-on-surface-variant font-code-sm text-code-sm">[ACTIVE]</span>
+              <h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">AI/ML Researcher</h3>
+            </div>
+            <p class="font-body-md text-body-md text-on-surface-variant">ACM@UCR | March 2026 - Present</p>
+          </div>
+          <div class="border-l-2 border-outline-variant pl-4 py-2 hover:bg-surface-container-highest transition-colors">
+            <div class="flex items-center gap-2 mb-1">
+              <span class="text-on-surface-variant font-code-sm text-code-sm">[ACTIVE]</span>
+              <h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Course Grader</h3>
+            </div>
+            <p class="font-body-md text-body-md text-on-surface-variant">UC Riverside | September 2025 - Present</p>
+          </div>
+          <div class="border-l-2 border-outline-variant pl-4 py-2 hover:bg-surface-container-highest transition-colors">
+            <div class="flex items-center gap-2 mb-1">
+              <span class="text-on-surface-variant font-code-sm text-code-sm">[COMPLETED]</span>
+              <h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Data Analytics Extern</h3>
+            </div>
+            <p class="font-body-md text-body-md text-on-surface-variant">Webacy | July 2024 - August 2024</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="w-full py-8 mt-auto bg-surface-container-lowest border-t-2 border-secondary-container flex flex-col md:flex-row justify-between items-center px-margin max-w-container-max mx-auto">
+    <div class="font-code-sm text-code-sm text-secondary mb-4 md:mb-0">MINH_(BEN)_PHAM_DATA_SYSTEMS</div>
+    <div class="flex gap-6">
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-tertiary transition-colors" href="https://github.com/BennyZaBoi" target="_blank">GitHub</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-tertiary transition-colors" href="https://www.linkedin.com/in/minh-ben-pham/" target="_blank">LinkedIn</a>
+    </div>
+  </footer>
+
+</main>
+
+<script src="../javascript/script.js"></script>
+</body>
+</html>

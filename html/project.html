@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Projects - Minh (Ben) Pham</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Hanken+Grotesk:wght@400;700&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "secondary-fixed-dim": "#acd1a1",
+          "on-secondary-fixed": "#032103",
+          "surface-container-lowest": "#0d0f0d",
+          "on-tertiary-fixed-variant": "#584324",
+          "inverse-on-surface": "#2f312e",
+          "outline": "#8c9387",
+          "surface-tint": "#a1d494",
+          "secondary-container": "#31512c",
+          "on-primary": "#0a3909",
+          "primary-fixed": "#bcf0ae",
+          "surface": "#121412",
+          "on-background": "#e2e3df",
+          "surface-container-highest": "#333533",
+          "on-tertiary-container": "#dcbd95",
+          "surface-container": "#1e201e",
+          "error-container": "#93000a",
+          "surface-container-low": "#1a1c1a",
+          "on-surface": "#e2e3df",
+          "secondary-fixed": "#c7edbb",
+          "primary-fixed-dim": "#a1d494",
+          "surface-bright": "#383a37",
+          "on-error": "#690005",
+          "on-surface-variant": "#c2c9bb",
+          "secondary": "#acd1a1",
+          "primary": "#a1d494",
+          "inverse-surface": "#e2e3df",
+          "on-error-container": "#ffdad6",
+          "on-secondary-container": "#9ec294",
+          "on-primary-fixed": "#002201",
+          "inverse-primary": "#3b6934",
+          "primary-container": "#2d5a27",
+          "outline-variant": "#42493e",
+          "tertiary": "#e1c299",
+          "on-secondary": "#193715",
+          "error": "#ffb4ab",
+          "tertiary-fixed": "#feddb3",
+          "tertiary-container": "#624c2c",
+          "on-primary-fixed-variant": "#23501e",
+          "on-secondary-fixed-variant": "#2f4e2a",
+          "tertiary-fixed-dim": "#e1c299",
+          "on-primary-container": "#9dd090",
+          "surface-dim": "#121412",
+          "surface-variant": "#333533",
+          "background": "#121412",
+          "on-tertiary-fixed": "#281801",
+          "on-tertiary": "#402d10",
+          "surface-container-high": "#292a28"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "container-max": "1200px",
+          "base": "8px",
+          "margin": "32px",
+          "gutter": "24px"
+        },
+        "fontFamily": {
+          "headline-lg-mobile": ["Space Mono", "monospace"],
+          "label-caps": ["Space Mono", "monospace"],
+          "headline-lg": ["Space Mono", "monospace"],
+          "code-sm": ["JetBrains Mono", "monospace"],
+          "headline-xl": ["Space Mono", "monospace"],
+          "body-md": ["Hanken Grotesk", "sans-serif"]
+        },
+        "fontSize": {
+          "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "700"}],
+          "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}],
+          "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+          "code-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+          "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+          "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+        }
+      }
+    }
+  }
+</script>
+<link rel="stylesheet" href="../css/styles.css"/>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md min-h-screen flex flex-col md:flex-row animate-pixel-fade-in">
+
+<canvas id="pixel-overlay" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:9999;pointer-events:none;display:block;"></canvas>
+
+<!-- SideNavBar — matches home page exactly -->
+<nav class="hidden lg:flex flex-col h-full py-margin bg-surface-container w-64 fixed left-0 top-0 border-r-2 border-outline-variant z-50">
+  <div class="px-4 mb-8">
+    <div class="flex items-center gap-4 mb-4">
+      <div class="w-12 h-12 bg-primary-container pixel-border flex items-center justify-center">
+        <img alt="Ben Pham" class="w-full h-full object-cover" src="../image/professionalben.jpg"/>
+      </div>
+      <div>
+        <h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary tracking-tighter">Ben Pham</h1>
+        <p class="font-code-sm text-code-sm text-secondary uppercase">Data Enthusiast</p>
+      </div>
+    </div>
+    <button onclick="openContactModal()" class="w-full py-2 bg-surface text-primary pixel-border pixel-shadow hover:bg-surface-container-high transition-colors font-label-caps text-label-caps pixel-shadow-active">
+      INITIATE_CONTACT
+    </button>
+  </div>
+  <ul class="flex flex-col gap-2 px-2">
+    <li>
+      <a data-nav href="index.html" class="flex items-center gap-3 text-on-surface-variant px-4 py-2 hover:bg-surface-container-high font-code-sm text-code-sm uppercase tracking-widest hover:bg-surface-container-highest transition-all active:scale-95 duration-100">
+        <span class="material-symbols-outlined">terminal</span>
+        Home
+      </a>
+    </li>
+    <li>
+      <a data-nav href="project.html" class="flex items-center gap-3 bg-secondary-container text-on-secondary-container border-l-4 border-secondary px-4 py-2 font-code-sm text-code-sm uppercase tracking-widest active:scale-95 duration-100">
+        <span class="material-symbols-outlined">forest</span>
+        Projects
+      </a>
+    </li>
+    <li>
+      <a data-nav href="about.html" class="flex items-center gap-3 text-on-surface-variant px-4 py-2 hover:bg-surface-container-high font-code-sm text-code-sm uppercase tracking-widest hover:bg-surface-container-highest transition-all active:scale-95 duration-100">
+        <span class="material-symbols-outlined">query_stats</span>
+        About
+      </a>
+    </li>
+    <li>
+      <a data-nav href="contact.html" class="flex items-center gap-3 text-on-surface-variant px-4 py-2 hover:bg-surface-container-high font-code-sm text-code-sm uppercase tracking-widest hover:bg-surface-container-highest transition-all active:scale-95 duration-100">
+        <span class="material-symbols-outlined">person</span>
+        Contact
+      </a>
+    </li>
+  </ul>
+  <div class="px-4 mt-auto">
+    <button onclick="window.open('../misc/Ben_Pham_Resume%20(23).pdf', '_blank')" class="w-full py-2 bg-surface text-secondary pixel-border-secondary pixel-shadow hover:bg-surface-container-high transition-colors font-label-caps text-label-caps pixel-shadow-active">
+        DOWNLOAD_CV
+    </button>
+  </div>
+</nav>
+
+<!-- Main Content -->
+<main class="flex-grow lg:ml-64 flex flex-col p-4 md:p-8 lg:p-margin gap-8 max-w-container-max mx-auto w-full">
+
+  <!-- Page Header -->
+  <div class="mb-4">
+    <h1 class="font-headline-xl text-headline-xl text-on-surface mb-4">PROJECT_DIR_</h1>
+    <p class="font-code-sm text-code-sm text-secondary max-w-2xl bg-surface-container-low p-4 border-l-4 border-primary" style="box-shadow: 2px 2px 0px 0px #2d5a27;">
+      <span class="text-primary">&gt;</span> Scanning local directories... Found viable data modules.<br/>
+      <span class="text-primary">&gt;</span> Awaiting user interaction. Click to access GitHub repositories.
+    </p>
+  </div>
+
+  <!-- Bento Grid of Projects -->
+  <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+
+    <!-- Project Card 1: Retail Analytics -->
+    <a class="group relative hover-glitch cursor-pointer block" href="https://github.com/BennyZaBoi/Customer-Analytics-Dashboard" target="_blank">
+      <div class="absolute -top-3 left-0 w-24 h-4 bg-surface-container border-t-2 border-l-2 border-r-2 border-outline-variant folder-tab z-10 flex items-center justify-center">
+        <span class="font-label-caps text-label-caps text-on-surface-variant text-[10px]">DIR_01</span>
+      </div>
+      <div class="bg-surface-container border-2 border-outline-variant p-6 h-full flex flex-col retro-border shadow-[6px_6px_0px_0px_#121412] group-hover:shadow-[2px_2px_0px_0px_#121412] group-hover:translate-x-1 group-hover:translate-y-1 transition-all duration-200 relative overflow-hidden">
+        <div class="absolute inset-0 scanline opacity-10 pointer-events-none z-20"></div>
+        <div class="flex justify-between items-start mb-6 relative z-30">
+          <div class="w-16 h-16 bg-surface-container-highest border-2 border-primary flex items-center justify-center retro-border glitch-target">
+            <span class="material-symbols-outlined text-4xl text-primary" style="font-variation-settings: 'FILL' 1;">bar_chart</span>
+          </div>
+          <span class="font-code-sm text-code-sm text-secondary bg-secondary-container px-2 py-1 flex items-center gap-1">
+            <span class="material-symbols-outlined text-sm">code</span> GitHub
+          </span>
+        </div>
+        <h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-2 z-30 group-hover:text-primary transition-colors">Retail_Analytics</h3>
+        <p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-1 z-30">Online Retail Customer Analytics Dashboard featuring ETL pipeline, RFM segmentation, and Cohort Analysis.</p>
+        <div class="flex flex-wrap gap-2 mt-auto z-30">
+          <span class="font-code-sm text-[12px] bg-tertiary-container text-tertiary px-2 py-1 border border-tertiary border-opacity-30">Python</span>
+          <span class="font-code-sm text-[12px] bg-tertiary-container text-tertiary px-2 py-1 border border-tertiary border-opacity-30">Tableau</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Project Card 2: GameDar -->
+    <a class="group relative hover-glitch cursor-pointer block" href="https://github.com/BennyZaBoi/GameDar" target="_blank">
+      <div class="absolute -top-3 left-0 w-24 h-4 bg-surface-container border-t-2 border-l-2 border-r-2 border-outline-variant folder-tab z-10 flex items-center justify-center">
+        <span class="font-label-caps text-label-caps text-on-surface-variant text-[10px]">DIR_02</span>
+      </div>
+      <div class="bg-surface-container border-2 border-outline-variant p-6 h-full flex flex-col retro-border shadow-[6px_6px_0px_0px_#121412] group-hover:shadow-[2px_2px_0px_0px_#121412] group-hover:translate-x-1 group-hover:translate-y-1 transition-all duration-200 relative overflow-hidden">
+        <div class="absolute inset-0 scanline opacity-10 pointer-events-none z-20"></div>
+        <div class="flex justify-between items-start mb-6 relative z-30">
+          <div class="w-16 h-16 bg-surface-container-highest border-2 border-primary flex items-center justify-center retro-border glitch-target">
+            <span class="material-symbols-outlined text-4xl text-primary" style="font-variation-settings: 'FILL' 1;">sports_esports</span>
+          </div>
+          <span class="font-code-sm text-code-sm text-secondary bg-secondary-container px-2 py-1 flex items-center gap-1">
+            <span class="material-symbols-outlined text-sm">code</span> GitHub
+          </span>
+        </div>
+        <h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-2 z-30 group-hover:text-primary transition-colors">GameDar</h3>
+        <p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-1 z-30">Gaming Forum With AI integrating IGDB API for real-time data and a custom BART sentiment analysis pipeline.</p>
+        <div class="flex flex-wrap gap-2 mt-auto z-30">
+          <span class="font-code-sm text-[12px] bg-tertiary-container text-tertiary px-2 py-1 border border-tertiary border-opacity-30">Python</span>
+          <span class="font-code-sm text-[12px] bg-tertiary-container text-tertiary px-2 py-1 border border-tertiary border-opacity-30">Django</span>
+          <span class="font-code-sm text-[12px] bg-tertiary-container text-tertiary px-2 py-1 border border-tertiary border-opacity-30">SQL</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Project Card 3: PosturEdge -->
+    <a class="group relative hover-glitch cursor-pointer block" href="https://github.com/BennyZaBoi/PosturEdge" target="_blank">
+      <div class="absolute -top-3 left-0 w-24 h-4 bg-surface-container border-t-2 border-l-2 border-r-2 border-outline-variant folder-tab z-10 flex items-center justify-center">
+        <span class="font-label-caps text-label-caps text-on-surface-variant text-[10px]">DIR_03</span>
+      </div>
+      <div class="bg-surface-container border-2 border-outline-variant p-6 h-full flex flex-col retro-border shadow-[6px_6px_0px_0px_#121412] group-hover:shadow-[2px_2px_0px_0px_#121412] group-hover:translate-x-1 group-hover:translate-y-1 transition-all duration-200 relative overflow-hidden">
+        <div class="absolute inset-0 scanline opacity-10 pointer-events-none z-20"></div>
+        <div class="flex justify-between items-start mb-6 relative z-30">
+          <div class="w-16 h-16 bg-surface-container-highest border-2 border-primary flex items-center justify-center retro-border glitch-target">
+            <span class="material-symbols-outlined text-4xl text-primary" style="font-variation-settings: 'FILL' 1;">sports_esports</span>
+          </div>
+          <span class="font-code-sm text-code-sm text-secondary bg-secondary-container px-2 py-1 flex items-center gap-1">
+            <span class="material-symbols-outlined text-sm">code</span> GitHub
+          </span>
+        </div>
+        <h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-2 z-30 group-hover:text-primary transition-colors">PosturEdge</h3>
+        <p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-1 z-30">Made a real time posture correction device using MPU-6050 to detect angles and ESP32 to be our edge device. In which me and my team connected this to Firebase and built an algorithm to detect bad posture.</p>
+        <div class="flex flex-wrap gap-2 mt-auto z-30">
+          <span class="font-code-sm text-[12px] bg-tertiary-container text-tertiary px-2 py-1 border border-tertiary border-opacity-30">C++</span>
+          <span class="font-code-sm text-[12px] bg-tertiary-container text-tertiary px-2 py-1 border border-tertiary border-opacity-30">ArduinoUI</span>
+          <span class="font-code-sm text-[12px] bg-tertiary-container text-tertiary px-2 py-1 border border-tertiary border-opacity-30">Firebase</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Project Card 4: Among Us Runner -->
+    <a class="group relative hover-glitch cursor-pointer block" href="https://github.com/BennyZaBoi/Among-Us-Runner" target="_blank">
+      <div class="absolute -top-3 left-0 w-24 h-4 bg-surface-container border-t-2 border-l-2 border-r-2 border-outline-variant folder-tab z-10 flex items-center justify-center">
+        <span class="font-label-caps text-label-caps text-on-surface-variant text-[10px]">DIR_04</span>
+      </div>
+      <div class="bg-surface-container border-2 border-outline-variant p-6 h-full flex flex-col retro-border shadow-[6px_6px_0px_0px_#121412] group-hover:shadow-[2px_2px_0px_0px_#121412] group-hover:translate-x-1 group-hover:translate-y-1 transition-all duration-200 relative overflow-hidden">
+        <div class="absolute inset-0 scanline opacity-10 pointer-events-none z-20"></div>
+        <div class="flex justify-between items-start mb-6 relative z-30">
+          <div class="w-16 h-16 bg-surface-container-highest border-2 border-primary flex items-center justify-center retro-border glitch-target">
+            <span class="material-symbols-outlined text-4xl text-primary" style="font-variation-settings: 'FILL' 1;">sports_esports</span>
+          </div>
+          <span class="font-code-sm text-code-sm text-secondary bg-secondary-container px-2 py-1 flex items-center gap-1">
+            <span class="material-symbols-outlined text-sm">code</span> GitHub
+          </span>
+        </div>
+        <h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-2 z-30 group-hover:text-primary transition-colors">Among Us Runner</h3>
+        <p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-1 z-30">Designed and implemented a real-time single-player game on an AVR microcontroller, integrating custom hardware and software for an interactive experience. Built an IR remote-controlled Among Us character to dodge obstacles using a state machine architecture and timerISR.h for synchronized multitasking. Managed up to five concurrent operations, including movement, obstacle spawning, scoring, and music playback, while leveraging libraries like LCD.h, irAVR.h, and avr/eeprom.h for hardware control and data persistence.</p>
+        <div class="flex flex-wrap gap-2 mt-auto z-30">
+          <span class="font-code-sm text-[12px] bg-tertiary-container text-tertiary px-2 py-1 border border-tertiary border-opacity-30">C++</span>
+          <span class="font-code-sm text-[12px] bg-tertiary-container text-tertiary px-2 py-1 border border-tertiary border-opacity-30">Arduino</span>
+          <span class="font-code-sm text-[12px] bg-tertiary-container text-tertiary px-2 py-1 border border-tertiary border-opacity-30">Wires</span>
+          <span class="font-code-sm text-[12px] bg-tertiary-container text-tertiary px-2 py-1 border border-tertiary border-opacity-30">TimerISR</span>
+        </div>
+      </div>
+    </a> 
+
+    <!-- Project Card 5: CTorch -->
+        <a class="group relative hover-glitch cursor-pointer block" href="https://github.com/nsnod/CTorch" target="_blank">
+      <div class="absolute -top-3 left-0 w-24 h-4 bg-surface-container border-t-2 border-l-2 border-r-2 border-outline-variant folder-tab z-10 flex items-center justify-center">
+        <span class="font-label-caps text-label-caps text-on-surface-variant text-[10px]">DIR_05</span>
+      </div>
+      <div class="bg-surface-container border-2 border-outline-variant p-6 h-full flex flex-col retro-border shadow-[6px_6px_0px_0px_#121412] group-hover:shadow-[2px_2px_0px_0px_#121412] group-hover:translate-x-1 group-hover:translate-y-1 transition-all duration-200 relative overflow-hidden">
+        <div class="absolute inset-0 scanline opacity-10 pointer-events-none z-20"></div>
+        <div class="flex justify-between items-start mb-6 relative z-30">
+          <div class="w-16 h-16 bg-surface-container-highest border-2 border-primary flex items-center justify-center retro-border glitch-target">
+            <span class="material-symbols-outlined text-4xl text-primary" style="font-variation-settings: 'FILL' 1;">sports_esports</span>
+          </div>
+          <span class="font-code-sm text-code-sm text-secondary bg-secondary-container px-2 py-1 flex items-center gap-1">
+            <span class="material-symbols-outlined text-sm">code</span> GitHub
+          </span>
+        </div>
+        <h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-2 z-30 group-hover:text-primary transition-colors">CTorch</h3>
+        <p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-1 z-30">Developed a simplified MNIST neural network in C++ to simulate training and optimization workflows with parallelization. Implemented dynamic thread allocation and dataset normalization using std::async to distribute tasks across four threads, achieving up to 4× speed improvements. Documented and presented results demonstrating enhanced computational efficiency and key insights into parallel programming for machine learning.</p>
+        <div class="flex flex-wrap gap-2 mt-auto z-30">
+          <span class="font-code-sm text-[12px] bg-tertiary-container text-tertiary px-2 py-1 border border-tertiary border-opacity-30">MNIST</span>
+          <span class="font-code-sm text-[12px] bg-tertiary-container text-tertiary px-2 py-1 border border-tertiary border-opacity-30">PyTorch</span>
+          <span class="font-code-sm text-[12px] bg-tertiary-container text-tertiary px-2 py-1 border border-tertiary border-opacity-30">Machine Learning</span>
+          <span class="font-code-sm text-[12px] bg-tertiary-container text-tertiary px-2 py-1 border border-tertiary border-opacity-30">C++</span>
+        </div>
+      </div>
+    </a> 
+
+    <!-- Project Card 6: CPP Chess Project-->
+         <a class="group relative hover-glitch cursor-pointer block" href="https://github.com/BennyZaBoi/chess-project" target="_blank">
+      <div class="absolute -top-3 left-0 w-24 h-4 bg-surface-container border-t-2 border-l-2 border-r-2 border-outline-variant folder-tab z-10 flex items-center justify-center">
+        <span class="font-label-caps text-label-caps text-on-surface-variant text-[10px]">DIR_04</span>
+      </div>
+      <div class="bg-surface-container border-2 border-outline-variant p-6 h-full flex flex-col retro-border shadow-[6px_6px_0px_0px_#121412] group-hover:shadow-[2px_2px_0px_0px_#121412] group-hover:translate-x-1 group-hover:translate-y-1 transition-all duration-200 relative overflow-hidden">
+        <div class="absolute inset-0 scanline opacity-10 pointer-events-none z-20"></div>
+        <div class="flex justify-between items-start mb-6 relative z-30">
+          <div class="w-16 h-16 bg-surface-container-highest border-2 border-primary flex items-center justify-center retro-border glitch-target">
+            <span class="material-symbols-outlined text-4xl text-primary" style="font-variation-settings: 'FILL' 1;">sports_esports</span>
+          </div>
+          <span class="font-code-sm text-code-sm text-secondary bg-secondary-container px-2 py-1 flex items-center gap-1">
+            <span class="material-symbols-outlined text-sm">code</span> GitHub
+          </span>
+        </div>
+        <h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-2 z-30 group-hover:text-primary transition-colors">CPP Chess Project</h3>
+        <p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-1 z-30">Developed a C++ chess game with clear terminal layout and fully implemented chess mechanics. Utilized Git and GitHub for version control and team collaboration, while managing project schedules, tasks, and deadlines to ensure timely feature delivery. Performed unit and integration testing with Google Test to maintain code quality and reliability.
+
+</p>
+        <div class="flex flex-wrap gap-2 mt-auto z-30">
+          <span class="font-code-sm text-[12px] bg-tertiary-container text-tertiary px-2 py-1 border border-tertiary border-opacity-30">C++</span>
+          <span class="font-code-sm text-[12px] bg-tertiary-container text-tertiary px-2 py-1 border border-tertiary border-opacity-30">GoogleTest</span>
+          <span class="font-code-sm text-[12px] bg-tertiary-container text-tertiary px-2 py-1 border border-tertiary border-opacity-30">CI/CD</span>
+            <span class="font-code-sm text-[12px] bg-tertiary-container text-tertiary px-2 py-1 border border-tertiary border-opacity-30">Valgrind</span>
+        </div>
+      </div>
+    </a> 
+
+  </div>
+
+  <!-- Footer — matches home page exactly -->
+  <footer class="w-full py-8 mt-auto bg-surface-container-lowest border-t-2 border-secondary-container flex flex-col md:flex-row justify-between items-center px-margin max-w-container-max mx-auto">
+    <div class="font-code-sm text-code-sm text-secondary mb-4 md:mb-0">
+      MINH_(BEN)_PHAM_DATA_SYSTEMS
+    </div>
+    <div class="flex gap-6">
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-tertiary transition-colors" href="https://github.com/BennyZaBoi" target="_blank">GitHub</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-tertiary transition-colors" href="https://www.linkedin.com/in/minh-ben-pham/" target="_blank">LinkedIn</a>
+    </div>
+  </footer>
+
+</main>
+
+<!-- Mobile Navigation -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-surface border-t-2 border-primary z-50 p-2 flex justify-around">
+  <a class="flex flex-col items-center p-2 text-on-surface-variant hover:text-primary" href="index.html">
+    <span class="material-symbols-outlined">terminal</span>
+    <span class="font-label-caps text-[10px] mt-1">Home</span>
+  </a>
+  <a class="flex flex-col items-center p-2 text-primary border-b-2 border-primary" href="project.html">
+    <span class="material-symbols-outlined">forest</span>
+    <span class="font-label-caps text-[10px] mt-1">Projects</span>
+  </a>
+  <a class="flex flex-col items-center p-2 text-on-surface-variant hover:text-primary" href="about.html">
+    <span class="material-symbols-outlined">query_stats</span>
+    <span class="font-label-caps text-[10px] mt-1">About</span>
+  </a>
+</nav>
+
+<script src="../javascript/script.js"></script>
+</body>
+</html>

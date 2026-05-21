@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contact - Minh (Ben) Pham</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=JetBrains+Mono:wght@400;700&family=Hanken+Grotesk:wght@400;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "secondary-fixed-dim": "#acd1a1",
+          "on-secondary-fixed": "#032103",
+          "surface-container-lowest": "#0d0f0d",
+          "on-tertiary-fixed-variant": "#584324",
+          "inverse-on-surface": "#2f312e",
+          "outline": "#8c9387",
+          "surface-tint": "#a1d494",
+          "secondary-container": "#31512c",
+          "on-primary": "#0a3909",
+          "primary-fixed": "#bcf0ae",
+          "surface": "#121412",
+          "on-background": "#e2e3df",
+          "surface-container-highest": "#333533",
+          "on-tertiary-container": "#dcbd95",
+          "surface-container": "#1e201e",
+          "error-container": "#93000a",
+          "surface-container-low": "#1a1c1a",
+          "on-surface": "#e2e3df",
+          "secondary-fixed": "#c7edbb",
+          "primary-fixed-dim": "#a1d494",
+          "surface-bright": "#383a37",
+          "on-error": "#690005",
+          "on-surface-variant": "#c2c9bb",
+          "secondary": "#acd1a1",
+          "primary": "#a1d494",
+          "inverse-surface": "#e2e3df",
+          "on-error-container": "#ffdad6",
+          "on-secondary-container": "#9ec294",
+          "on-primary-fixed": "#002201",
+          "inverse-primary": "#3b6934",
+          "primary-container": "#2d5a27",
+          "outline-variant": "#42493e",
+          "tertiary": "#e1c299",
+          "on-secondary": "#193715",
+          "error": "#ffb4ab",
+          "tertiary-fixed": "#feddb3",
+          "tertiary-container": "#624c2c",
+          "on-primary-fixed-variant": "#23501e",
+          "on-secondary-fixed-variant": "#2f4e2a",
+          "tertiary-fixed-dim": "#e1c299",
+          "on-primary-container": "#9dd090",
+          "surface-dim": "#121412",
+          "surface-variant": "#333533",
+          "background": "#121412",
+          "on-tertiary-fixed": "#281801",
+          "on-tertiary": "#402d10",
+          "surface-container-high": "#292a28"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "container-max": "1200px",
+          "base": "8px",
+          "margin": "32px",
+          "gutter": "24px"
+        },
+        "fontFamily": {
+          "headline-lg-mobile": ["Space Mono", "monospace"],
+          "label-caps": ["Space Mono", "monospace"],
+          "headline-lg": ["Space Mono", "monospace"],
+          "code-sm": ["JetBrains Mono", "monospace"],
+          "headline-xl": ["Space Mono", "monospace"],
+          "body-md": ["Hanken Grotesk", "sans-serif"]
+        },
+        "fontSize": {
+          "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "700"}],
+          "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}],
+          "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+          "code-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+          "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+          "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+        }
+      }
+    }
+  }
+</script>
+<link rel="stylesheet" href="../css/styles.css"/>
+<style>
+  /* Card label style matching about.html */
+  .card-label {
+    position: absolute;
+    top: -10px;
+    left: 12px;
+    background: #1e201e;
+    padding: 0 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: #a1d494;
+    font-weight: 700;
+  }
+
+  /* Scanline overlay */
+  .scanlines { position: relative; }
+  .scanlines::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(18,20,18,0) 50%, rgba(0,0,0,0.08) 50%);
+    background-size: 100% 4px;
+    z-index: 10;
+    pointer-events: none;
+  }
+
+  /* Pixel borders from styles.css */
+  .pixel-border {
+    border-top: 2px solid #a1d494;
+    border-left: 2px solid #a1d494;
+    border-bottom: 2px solid #9dd090;
+    border-right: 2px solid #9dd090;
+  }
+  .pixel-border-secondary {
+    border-top: 2px solid #acd1a1;
+    border-left: 2px solid #acd1a1;
+    border-bottom: 2px solid #9ec294;
+    border-right: 2px solid #9ec294;
+  }
+  .pixel-shadow { box-shadow: 8px 8px 0px 0px #2d5a27; }
+  .pixel-shadow-active:active { transform: translate(4px,4px); box-shadow: 4px 4px 0px 0px #2d5a27; }
+
+  /* Blinking cursor */
+  .blinking-cursor::after {
+    content: "█";
+    animation: blink 1s step-start infinite;
+    color: #a1d494;
+    margin-left: 4px;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+
+  /* Terminal typewriter lines */
+  .terminal-line {
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+  .terminal-line.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Contact card hover lift */
+  .contact-card {
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .contact-card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 10px 10px 0px 0px #2d5a27;
+  }
+
+  /* Glitch effect on title */
+  @keyframes glitch-1 {
+    0%, 90%, 100% { clip-path: none; transform: none; }
+    92% { clip-path: polygon(0 20%, 100% 20%, 100% 40%, 0 40%); transform: translate(-3px, 0); }
+    94% { clip-path: polygon(0 60%, 100% 60%, 100% 75%, 0 75%); transform: translate(3px, 0); }
+    96% { clip-path: none; transform: none; }
+  }
+  .glitch-title {
+    position: relative;
+    animation: glitch-1 6s infinite;
+  }
+
+  /* Status dot pulse */
+  @keyframes status-pulse {
+    0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(161, 212, 148, 0.4); }
+    50% { opacity: 0.8; box-shadow: 0 0 0 6px rgba(161, 212, 148, 0); }
+  }
+  .status-dot {
+    width: 8px; height: 8px;
+    background: #a1d494;
+    border-radius: 0;
+    animation: status-pulse 2s infinite;
+    display: inline-block;
+    flex-shrink: 0;
+  }
+
+  /* Copy feedback */
+  .copy-btn { cursor: pointer; }
+  .copy-btn.copied { color: #a1d494 !important; }
+</style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md min-h-screen flex flex-col md:flex-row">
+
+<canvas id="pixel-overlay" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:9999;pointer-events:none;display:block;"></canvas>
+
+<!-- SideNavBar -->
+<nav class="hidden lg:flex flex-col h-full py-margin bg-surface-container w-64 fixed left-0 top-0 border-r-2 border-outline-variant z-50">
+  <div class="px-4 mb-8">
+    <div class="flex items-center gap-4 mb-4">
+      <div class="w-12 h-12 bg-primary-container pixel-border flex items-center justify-center">
+        <img alt="Ben Pham" class="w-full h-full object-cover" src="../image/professionalben.jpg"/>
+      </div>
+      <div>
+        <h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary tracking-tighter">Ben Pham</h1>
+        <p class="font-code-sm text-code-sm text-secondary uppercase">Data Enthusiast</p>
+      </div>
+    </div>
+    <button onclick="openContactModal()" class="w-full py-2 bg-surface text-primary pixel-border pixel-shadow hover:bg-surface-container-high transition-colors font-label-caps text-label-caps pixel-shadow-active">
+      INITIATE_CONTACT
+    </button>
+  </div>
+  <ul class="flex flex-col gap-2 px-2">
+    <li>
+      <a data-nav href="index.html" class="flex items-center gap-3 text-on-surface-variant px-4 py-2 hover:bg-surface-container-highest font-code-sm text-code-sm uppercase tracking-widest transition-all active:scale-95 duration-100">
+        <span class="material-symbols-outlined">terminal</span>Home
+      </a>
+    </li>
+    <li>
+      <a data-nav href="project.html" class="flex items-center gap-3 text-on-surface-variant px-4 py-2 hover:bg-surface-container-highest font-code-sm text-code-sm uppercase tracking-widest transition-all active:scale-95 duration-100">
+        <span class="material-symbols-outlined">forest</span>Projects
+      </a>
+    </li>
+    <li>
+      <a data-nav href="about.html" class="flex items-center gap-3 text-on-surface-variant px-4 py-2 hover:bg-surface-container-highest font-code-sm text-code-sm uppercase tracking-widest transition-all active:scale-95 duration-100">
+        <span class="material-symbols-outlined">query_stats</span>About
+      </a>
+    </li>
+    <li>
+      <a data-nav href="contact.html" class="flex items-center gap-3 bg-secondary-container text-on-secondary-container border-l-4 border-secondary px-4 py-2 font-code-sm text-code-sm uppercase tracking-widest active:scale-95 duration-100">
+        <span class="material-symbols-outlined">person</span>Contact
+      </a>
+    </li>
+  </ul>
+  <div class="px-4 mt-auto">
+    <button onclick="window.open('../misc/Ben_Pham_Resume%20(23).pdf', '_blank')" class="w-full py-2 bg-surface text-secondary pixel-border-secondary pixel-shadow hover:bg-surface-container-high transition-colors font-label-caps text-label-caps pixel-shadow-active">
+      DOWNLOAD_CV
+    </button>
+  </div>
+</nav>
+
+<!-- Main Content -->
+<main class="flex-grow lg:ml-64 flex flex-col p-4 md:p-8 lg:p-margin gap-8 max-w-container-max mx-auto w-full">
+
+  <!-- Page Header -->
+  <div class="mb-2">
+    <p class="font-code-sm text-code-sm text-on-surface-variant mb-2 flex items-center gap-2">
+      <span class="status-dot"></span>
+      <span>CHANNEL_OPEN — AWAITING_TRANSMISSION</span>
+    </p>
+    <h1 class="glitch-title font-headline-xl text-headline-xl text-primary">&gt; CONTACT_LIST...</h1>
+  </div>
+
+  <!-- Terminal intro block -->
+  <div class="bg-surface-container-lowest pixel-border scanlines relative p-6 font-code-sm text-code-sm">
+    <div class="card-label">TERMINAL_OUTPUT</div>
+    <div id="terminal-intro" class="space-y-1 text-on-surface-variant leading-7">
+      <p class="terminal-line text-secondary">$ connect --host minh-ben-pham --protocol secure</p>
+      <p class="terminal-line">Establishing connection<span class="text-primary">...</span></p>
+      <p class="terminal-line text-primary">✓ Connection established</p>
+      <p class="terminal-line">Loading contact channels<span class="text-secondary">...</span></p>
+      <p class="terminal-line text-primary">✓ 3 channels found</p>
+      <p class="terminal-line">&nbsp;</p>
+      <p class="terminal-line text-on-surface-variant">I'm always open to collaborating on data-driven projects,</p>
+      <p class="terminal-line text-on-surface-variant">research opportunities, or just talking shop about ML/AI.</p>
+      <p class="terminal-line">&nbsp;</p>
+      <p class="terminal-line text-secondary blinking-cursor">$ awaiting_input</p>
+    </div>
+  </div>
+
+  <!-- Contact Cards Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+
+    <!-- Email -->
+    <a href="mailto:minh4business@gmail.com"
+       class="contact-card bg-surface-container pixel-border pixel-shadow relative p-6 block group">
+      <div class="card-label">CHANNEL_01</div>
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-primary-container flex items-center justify-center flex-shrink-0 border border-primary">
+          <span class="material-symbols-outlined text-primary text-lg">mail</span>
+        </div>
+        <div class="min-w-0">
+          <p class="font-label-caps text-label-caps text-on-surface-variant mb-1">EMAIL</p>
+          <p class="font-code-sm text-code-sm text-primary break-all">minh4business<br/>@gmail.com</p>
+          <p class="font-label-caps text-label-caps text-secondary mt-3 group-hover:text-primary transition-colors">SEND_MESSAGE →</p>
+        </div>
+      </div>
+    </a>
+
+    <!-- GitHub -->
+    <a href="https://github.com/BennyZaBoi" target="_blank" rel="noopener noreferrer"
+       class="contact-card bg-surface-container pixel-border pixel-shadow relative p-6 block group">
+      <div class="card-label">CHANNEL_02</div>
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-surface-container-highest flex items-center justify-center flex-shrink-0 border border-outline-variant">
+          <svg class="w-5 h-5 fill-current text-on-surface-variant group-hover:text-primary transition-colors" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+          </svg>
+        </div>
+        <div>
+          <p class="font-label-caps text-label-caps text-on-surface-variant mb-1">GITHUB</p>
+          <p class="font-code-sm text-code-sm text-on-surface">BennyZaBoi</p>
+          <p class="font-label-caps text-label-caps text-secondary mt-3 group-hover:text-primary transition-colors">VIEW_REPOS →</p>
+        </div>
+      </div>
+    </a>
+
+    <!-- LinkedIn -->
+    <a href="https://www.linkedin.com/in/minh-ben-pham/" target="_blank" rel="noopener noreferrer"
+       class="contact-card bg-surface-container pixel-border pixel-shadow relative p-6 block group">
+      <div class="card-label">CHANNEL_03</div>
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-surface-container-highest flex items-center justify-center flex-shrink-0 border border-outline-variant">
+          <svg class="w-5 h-5 fill-current text-on-surface-variant group-hover:text-primary transition-colors" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+        </div>
+        <div>
+          <p class="font-label-caps text-label-caps text-on-surface-variant mb-1">LINKEDIN</p>
+          <p class="font-code-sm text-code-sm text-on-surface">minh-ben-pham</p>
+          <p class="font-label-caps text-label-caps text-secondary mt-3 group-hover:text-primary transition-colors">CONNECT →</p>
+        </div>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- Response Time / Status Block -->
+  <div class="bg-surface-container p-6 pixel-border relative grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div class="card-label">SYS_STATUS</div>
+    <div class="text-center md:text-left">
+      <p class="font-label-caps text-label-caps text-on-surface-variant mb-1">RESPONSE_TIME</p>
+      <p class="font-code-sm text-code-sm text-primary">&lt; 24 HRS</p>
+    </div>
+    <div class="text-center">
+      <p class="font-label-caps text-label-caps text-on-surface-variant mb-1">STATUS</p>
+      <div class="flex items-center justify-center gap-2">
+        <span class="status-dot"></span>
+        <p class="font-code-sm text-code-sm text-primary">ONLINE</p>
+      </div>
+    </div>
+    <div class="text-center md:text-right">
+      <p class="font-label-caps text-label-caps text-on-surface-variant mb-1">PREFERRED_CHANNEL</p>
+      <p class="font-code-sm text-code-sm text-secondary">EMAIL</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="w-full py-8 mt-auto bg-surface-container-lowest border-t-2 border-secondary-container flex flex-col md:flex-row justify-between items-center px-margin max-w-container-max mx-auto">
+    <div class="font-code-sm text-code-sm text-secondary mb-4 md:mb-0">MINH_(BEN)_PHAM_DATA_SYSTEMS</div>
+    <div class="flex gap-6">
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-tertiary transition-colors" href="https://github.com/BennyZaBoi" target="_blank">GitHub</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-tertiary transition-colors" href="https://www.linkedin.com/in/minh-ben-pham/" target="_blank">LinkedIn</a>
+    </div>
+  </footer>
+</main>
+
+<!-- ===== TERMINAL CONTACT MODAL ===== -->
+<div id="contact-modal"
+     class="fixed inset-0 z-[10000] flex items-center justify-center p-4"
+     style="display:none !important; background: rgba(13,15,13,0.85); backdrop-filter: blur(4px);">
+  <div id="modal-box"
+       class="w-full max-w-lg bg-surface-container-lowest pixel-border pixel-shadow relative"
+       style="transform: scale(0.92); opacity: 0; transition: transform 0.2s ease, opacity 0.2s ease;">
+
+    <!-- Modal Title Bar -->
+    <div class="flex items-center justify-between bg-surface-container px-4 py-2 border-b-2 border-outline-variant">
+      <div class="flex items-center gap-3">
+        <div class="flex gap-1.5">
+          <span class="w-3 h-3 bg-error-container inline-block border border-error/30"></span>
+          <span class="w-3 h-3 bg-tertiary-container inline-block border border-tertiary/30"></span>
+          <span class="w-3 h-3 bg-secondary-container inline-block border border-secondary/30"></span>
+        </div>
+        <span class="font-code-sm text-code-sm text-on-surface-variant uppercase tracking-widest">contact_terminal.exe</span>
+      </div>
+      <button onclick="closeContactModal()" class="font-code-sm text-code-sm text-on-surface-variant hover:text-error transition-colors px-2">
+        [X]
+      </button>
+    </div>
+
+    <!-- Terminal Body -->
+    <div class="p-6 font-code-sm text-code-sm space-y-2 scanlines min-h-[320px]" id="modal-terminal">
+      <!-- Lines typed in via JS -->
+    </div>
+  </div>
+</div>
+
+<script src="../javascript/script.js"></script>
+
+</body>
+</html>

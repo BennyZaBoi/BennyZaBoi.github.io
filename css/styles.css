@@ -1,0 +1,47 @@
+/* 8-bit Border Utilities */
+.pixel-border {
+    border-top: 2px solid #a1d494;
+    border-left: 2px solid #a1d494;
+    border-bottom: 2px solid #9dd090;
+    border-right: 2px solid #9dd090;
+}
+.pixel-border-secondary {
+    border-top: 2px solid #acd1a1;
+    border-left: 2px solid #acd1a1;
+    border-bottom: 2px solid #9ec294;
+    border-right: 2px solid #9ec294;
+}
+.pixel-shadow {
+    box-shadow: 8px 8px 0px 0px #2d5a27;
+}
+.pixel-shadow-active:active {
+    transform: translate(4px, 4px);
+    box-shadow: 4px 4px 0px 0px #2d5a27;
+}
+
+/* Terminal Blinking Cursor */
+.blinking-cursor::after {
+    content: "█";
+    animation: blink 1s step-start infinite;
+    color: #a1d494;
+    margin-left: 4px;
+}
+@keyframes blink { 50% { opacity: 0; } }
+
+/* Scanline effect overlay */
+.scanlines {
+    position: relative;
+}
+.scanlines::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(rgba(18, 20, 18, 0) 50%, rgba(0, 0, 0, 0.1) 50%);
+    background-size: 100% 4px;
+    z-index: 10;
+    pointer-events: none;
+}
