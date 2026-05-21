@@ -396,4 +396,14 @@
 <script src="../javascript/script.js"></script>
 
 </body>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const lines = document.querySelectorAll('#terminal-intro .terminal-line');
+    lines.forEach((line, i) => {
+      setTimeout(() => {
+        line.classList.add('visible');
+      }, i * 1000);
+    });
+  });
+</script>
 </html>
