@@ -20,7 +20,7 @@
                 y: j * pixelSize,
                 color: colors[Math.floor(Math.random() * colors.length)],
                 active: true,
-                delay: 500 + Math.random() * 1000
+                delay: 100 + Math.random() * 400
             });
         }
     }
@@ -41,7 +41,7 @@
 
         pixels.forEach(p => {
             if (elapsed > p.delay) {
-                if (elapsed > p.delay + 400) {
+                if (elapsed > p.delay + 200) {
                     p.active = false;
                 } else {
                     allDone = false;
