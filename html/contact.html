@@ -415,16 +415,129 @@
 </nav>
 
 <script src="../javascript/script.js"></script>
-
 </body>
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const lines = document.querySelectorAll('#terminal-intro .terminal-line');
-    lines.forEach((line, i) => {
-      setTimeout(() => {
-        line.classList.add('visible');
-      }, i * 1000);
-    });
+document.addEventListener('DOMContentLoaded', () => {
+  const lines = document.querySelectorAll('#terminal-intro .terminal-line');
+  lines.forEach((line, i) => {
+    setTimeout(() => line.classList.add('visible'), i * 180);
   });
+
+  const term = document.getElementById('terminal-intro');
+
+  const inputRow = document.createElement('div');
+  inputRow.style.cssText = 'display:flex;align-items:center;gap:6px;margin-top:8px;';
+  inputRow.innerHTML = `
+    <span style="color:#a1d494;font-family:JetBrains Mono,monospace;font-size:14px;">$</span>
+    <input id="terminal-input" type="text" autocomplete="off" spellcheck="false"
+      style="background:transparent;border:none;outline:none;color:#e2e3df;
+             font-family:JetBrains Mono,monospace;font-size:14px;flex:1;caret-color:#a1d494;"
+      placeholder="type a command..."/>
+  `;
+
+  const COMMANDS = {
+    help: () => [
+      { text: '> Available commands:', color: '#e1c299' },
+      { text: '  contact   — show contact channels', color: '#c2c9bb' },
+      { text: '  resume    — download my CV', color: '#c2c9bb' },
+      { text: '  skills    — view tech stack', color: '#c2c9bb' },
+      { text: '  about     — a bit about me', color: '#c2c9bb' },
+      { text: '  projects  — view my work', color: '#c2c9bb' },
+      { text: '  clear     — clear terminal', color: '#c2c9bb' },
+      { text: '  hire ben  — excellent choice', color: '#c2c9bb' },
+    ],
+    contact: () => {
+      document.querySelector('.contact-card').scrollIntoView({ behavior: 'smooth' });
+      return [{ text: '> Scrolling to contact channels...', color: '#a1d494' }];
+    },
+    resume: () => {
+      setTimeout(() => window.open('../misc/Ben_Pham_Resume%20(23).pdf', '_blank'), 600);
+      return [{ text: '> Opening resume... downloading CV.', color: '#a1d494' }];
+    },
+    skills: () => [
+      { text: '> TECH_STACK:', color: '#e1c299' },
+      { text: '  Languages  : Python, SQL, C++, R', color: '#c2c9bb' },
+      { text: '  ML/AI      : scikit-learn, XGBoost, SHAP, HuggingFace', color: '#c2c9bb' },
+      { text: '  Data       : Pandas, NumPy, Tableau, Excel', color: '#c2c9bb' },
+      { text: '  Tools      : Git, Firebase, Supabase, PostgreSQL', color: '#c2c9bb' },
+    ],
+    about: () => [
+      { text: '> BIO:', color: '#e1c299' },
+      { text: '  CS Senior at UC Riverside — graduating June 2026.', color: '#c2c9bb' },
+      { text: '  Passionate about using data for the betterment of society.', color: '#c2c9bb' },
+      { text: '  Based in Temecula, CA. GPA: 3.6', color: '#c2c9bb' },
+    ],
+    projects: () => {
+      setTimeout(() => window.location.href = 'project.html', 800);
+      return [{ text: '> Navigating to projects...', color: '#a1d494' }];
+    },
+    clear: () => {
+      term.querySelectorAll('.cmd-output').forEach(el => el.remove());
+      return [];
+    },
+    'hire ben': () => {
+      setTimeout(() => window.open('https://www.linkedin.com/in/minh-ben-pham/', '_blank'), 1000);
+      return [
+        { text: '> Excellent choice. Initializing offer letter...', color: '#a1d494' },
+        { text: '> Redirecting to LinkedIn...', color: '#acd1a1' },
+      ];
+    },
+    'sudo hire ben': () => {
+      setTimeout(() => window.open('https://www.linkedin.com/in/minh-ben-pham/', '_blank'), 800);
+      return [{ text: '> Permission granted. Opening LinkedIn...', color: '#a1d494' }];
+    },
+    hello: () => [
+      { text: "> Hello! I'm Ben — a data scientist from the Inland Empire.", color: '#a1d494' },
+      { text: "> Type 'help' to see what I can do.", color: '#c2c9bb' },
+    ],
+    matrix: () => {
+      let count = 0;
+      const chars = '日ﾊﾐﾋｰｳｼﾅﾓﾆｻﾜﾂｵﾘｱﾎﾃﾏｹﾒｴｶｷﾑﾕﾗｾﾈｽﾀﾇﾍ01';
+      const interval = setInterval(() => {
+        const row = document.createElement('p');
+        row.className = 'cmd-output';
+        row.style.cssText = 'color:#a1d494;font-family:JetBrains Mono,monospace;font-size:12px;margin:0;letter-spacing:2px;';
+        row.textContent = Array.from({length: 40}, () => chars[Math.floor(Math.random()*chars.length)]).join('');
+        term.insertBefore(row, inputRow);
+        if (++count > 8) clearInterval(interval);
+      }, 80);
+      return [];
+    },
+  };
+
+  setTimeout(() => {
+    term.appendChild(inputRow);
+    const input = document.getElementById('terminal-input');
+    input.focus();
+
+    input.addEventListener('keyup', (e) => {
+      if (e.key !== 'Enter' && e.keyCode !== 13) return;
+      const raw = e.target.value.trim().toLowerCase();
+      e.target.value = '';
+      if (!raw) return;
+
+      const echo = document.createElement('p');
+      echo.className = 'cmd-output';
+      echo.style.cssText = 'color:#acd1a1;font-family:JetBrains Mono,monospace;font-size:14px;margin:4px 0 0;';
+      echo.textContent = '$ ' + raw;
+      term.insertBefore(echo, inputRow);
+
+      const handler = COMMANDS[raw];
+      const responses = handler
+        ? handler()
+        : [{ text: `> Command not recognized: "${raw}". Type 'help' for options.`, color: '#ffb4ab' }];
+
+      responses.forEach((r, i) => {
+        setTimeout(() => {
+          const p = document.createElement('p');
+          p.className = 'cmd-output';
+          p.style.cssText = `color:${r.color};font-family:JetBrains Mono,monospace;font-size:14px;margin:2px 0 0;`;
+          p.textContent = r.text;
+          term.insertBefore(p, inputRow);
+        }, i * 120);
+      });
+    });
+  }, lines.length * 180 + 300);
+});
 </script>
 </html>
