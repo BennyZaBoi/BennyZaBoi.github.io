@@ -503,6 +503,77 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 80);
       return [];
     },
+    party: () => {
+  const overlay = document.createElement('div');
+  overlay.style.cssText = `
+    position:fixed;inset:0;z-index:99999;pointer-events:none;overflow:hidden;
+  `;
+  document.body.appendChild(overlay);
+
+  const colors = ['#a1d494','#e1c299','#ffb4ab','#acd1a1','#9dd090','#feddb3','#c7edbb','#ff6b6b','#ffd93d','#6bcb77'];
+  const messages = ['HIRE ME','HIRE ME','HIRE ME','WOOOOOOOO','HIRE BEN','HIRE ME NOW','HIRE ME!', 'HIRE ME!','LET\'S WORK TOGETHER','I\'M YOUR GUY','AHHH YEAH!!!','JOB TIME','COLLABORATE WITH ME','OPEN TO OPPORTUNITIES'];
+
+  // Confetti
+  for (let i = 0; i < 120; i++) {
+    const c = document.createElement('div');
+    const size = Math.random() * 10 + 6;
+    c.style.cssText = `
+      position:absolute;
+      width:${size}px;height:${size}px;
+      background:${colors[Math.floor(Math.random()*colors.length)]};
+      left:${Math.random()*100}%;
+      top:-20px;
+      opacity:${0.7 + Math.random()*0.3};
+      transform:rotate(${Math.random()*360}deg);
+      animation:confetti-fall ${1.5+Math.random()*2}s linear ${Math.random()*1}s forwards;
+    `;
+    overlay.appendChild(c);
+  }
+
+  // HIRE ME text bursts
+  for (let i = 0; i < 18; i++) {
+    const t = document.createElement('div');
+    const size = Math.floor(Math.random()*32)+16;
+    t.style.cssText = `
+      position:absolute;
+      left:${Math.random()*85}%;
+      top:${Math.random()*85}%;
+      color:${colors[Math.floor(Math.random()*colors.length)]};
+      font-family:JetBrains Mono,monospace;
+      font-size:${size}px;
+      font-weight:700;
+      letter-spacing:0.05em;
+      opacity:0;
+      animation:hire-pop ${0.4+Math.random()*0.3}s ease forwards ${Math.random()*1.5}s;
+      text-shadow:2px 2px 0px rgba(0,0,0,0.5);
+      white-space:nowrap;
+    `;
+    t.textContent = messages[Math.floor(Math.random()*messages.length)];
+    overlay.appendChild(t);
+  }
+
+  // Inject keyframes
+  if (!document.getElementById('party-style')) {
+    const style = document.createElement('style');
+    style.id = 'party-style';
+    style.textContent = `
+      @keyframes confetti-fall {
+        0%   { transform: translateY(0) rotate(0deg); opacity: 1; }
+        100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+      }
+      @keyframes hire-pop {
+        0%   { opacity:0; transform:scale(0.3) rotate(-10deg); }
+        60%  { opacity:1; transform:scale(1.2) rotate(3deg); }
+        100% { opacity:1; transform:scale(1) rotate(0deg); }
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
+  setTimeout(() => overlay.remove(), 4000);
+
+  return [{ text: '> PARTY MODE ACTIVATED', color: '#a1d494' }];
+},
   };
 
   setTimeout(() => {
